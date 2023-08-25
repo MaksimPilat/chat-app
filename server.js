@@ -2,6 +2,7 @@ const express = require('express');
 const app = express().use(express.json());
 const server = require('http').createServer(app);
 const io = require('socket.io')(server, {
+    path: '/socket',
     cors: {
         origin: '*',
         methods: ['GET', 'POST'],
@@ -14,7 +15,9 @@ const PORT = process.env.PORT || 3001;
 
 const rooms = new Map();
 
-app.get('/rooms/:roomId', (req, res) => {
+const router = express.Router();
+
+router.get('/rooms/:roomId', (req, res) => {
     const roomId = req.params.roomId;
     const room = rooms.get(roomId);
     const data = {
@@ -28,7 +31,7 @@ app.get('/rooms/:roomId', (req, res) => {
     res.json(data);
 });
 
-app.post('/rooms', (req, res) => {
+router.post('/rooms', (req, res) => {
     const { roomId } = req.body;
     if (!rooms.has(roomId)) {
         rooms.set(roomId, new Map([
@@ -44,6 +47,8 @@ app.post('/rooms', (req, res) => {
     }
     res.send();
 });
+
+app.use('/api', router); 
 
 server.listen(PORT, (err) => {
     if (err) throw Error(err);
@@ -86,4 +91,3 @@ io.on("connection", (socket) => {
         });
     });
 });
-

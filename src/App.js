@@ -17,7 +17,7 @@ function App() {
   });
 
   const onEnterRoom = async (data) => {
-    const { messages } = (await axios.get(`/rooms/${data.roomId}`)).data;
+    const { messages } = (await axios.get(`/api/rooms/${data.roomId}`)).data;
     dispatch({
       type: "JOIN_ROOM",
       payload: {

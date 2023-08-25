@@ -15,12 +15,12 @@ export const JoinForm = ({ onEnter }) => {
         if (Object.values(data).some(value => !value)) return alert('All fields are required!');
         if (data.userName.trim() === "admin") return alert('This username is reserved, please try another one!');
         setIsLoading(true);
-        const { users } = (await axios.get(`/rooms/${data.roomId}`)).data;
+        const { users } = (await axios.get(`/api/rooms/${data.roomId}`)).data;
         if (users.find(user => user === data.userName)) {
             setIsLoading(false);
             return alert('There is already a user with this name in this room!');
         }
-        await axios.post('/rooms', data);
+        await axios.post('/api/rooms', data);
         onEnter(data);
     };
 

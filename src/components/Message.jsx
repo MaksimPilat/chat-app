@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Message = ({ userName, text, own, darkTheme }) => {
+export const Message = ({ userName, text, own }) => {
 
   return (
     <div className={`${own ? "ml-6" : "mr-6"} flex justify-center`}>
