@@ -3,7 +3,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 25px;
-  height: 100vh;
+  height: 100svh;
 }
 
 input, textarea {
@@ -23,7 +23,7 @@ input, textarea {
     padding: 0px;
   }
   .media-container {
-    height: 100vh;
+    height: 100svh;
   }
 }
 
