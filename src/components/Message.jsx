@@ -14,7 +14,7 @@ export const Message = ({ userName, text, own }) => {
                 {userName}
             </div> : null}
 
-            <pre className="leading-5">{text}</pre>
+            <pre className="leading-5 whitespace-pre-wrap">{text}</pre>
         </div>
     </div>
   )

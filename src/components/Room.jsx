@@ -37,7 +37,7 @@ export const Room = ({ id, userName, users, messages }) => {
       </div>
 
       <div className="flex h-full overflow-hidden">
-        <div className={`overflow-y-auto overflow-x-hidden sidebar h-full border-y-2 border-white bg-gray-100 transition-max-w duration-500 ${sidebar ? "max-w-xs" : "max-w-0"}`}>
+        <div className={`overflow-y-auto overflow-x-hidden h-full border-y-2 border-white bg-gray-100 transition-max-w duration-500 ${sidebar ? "max-w-xs" : "max-w-0"}`}>
           <div className="px-3 mt-1 mb-3">
             <div className="p-2 whitespace-nowrap">
               <span className="font-bold">Users ({users.length})</span>
